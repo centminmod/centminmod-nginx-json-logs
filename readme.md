@@ -420,6 +420,30 @@ Requests per day:
 2023-10-09 (35) 2023-10-10 (38) 2023-10-11 (171)
 ```
 
+Example filtering for `185.170.144.3` requests in `/home/nginx/domains/domain.com/log/access.json` Nginx JSON log.
+
+```
+./bot-rate.py /home/nginx/domains/domain.com/log/access.json 185.170.144.3
+Requests with keyword '185.170.144.3':
+Requests per second:
+2023-10-02T15:21:04 (1) 2023-10-02T15:21:05 (1) 2023-10-02T15:21:06 (1)
+2023-10-06T01:26:26 (1) 2023-10-06T01:26:28 (1) 2023-10-07T02:33:57 (1)
+2023-10-07T02:33:58 (1) 2023-10-09T11:10:45 (1) 2023-10-09T11:10:47 (1)
+2023-10-11T20:59:35 (1) 2023-10-11T20:59:37 (1) 2023-10-11T20:59:39 (1)
+
+Requests per minute:
+2023-10-02T15:21 (3)    2023-10-06T01:26 (2)    2023-10-07T02:33 (2)
+2023-10-09T11:10 (2)    2023-10-11T20:59 (3)
+
+Requests per hour:
+2023-10-02T15 (3)       2023-10-06T01 (2)       2023-10-07T02 (2)
+2023-10-09T11 (2)       2023-10-11T20 (3)
+
+Requests per day:
+2023-10-02 (3)  2023-10-06 (2)  2023-10-07 (2)
+2023-10-09 (2)  2023-10-11 (3)
+```
+
 # Centmin Mod Nginx JSON Logs
 
 To setup Nginx JSON access logging, you will need to manually edit your main `/usr/local/nginx/conf/nginx.conf` config file and add a 4th `log_format` to existing listing which is listed directly below where log_format named = `main_json`:
